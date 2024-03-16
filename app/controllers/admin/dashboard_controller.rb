@@ -2,6 +2,7 @@ class Admin::DashboardController < ApplicationController
   http_basic_authenticate_with name: ENV['ADMIN_USERNAME'], password: ENV['ADMIN_PASSWORD']
 
   def show
-    render plain: "testing testing"
+    @total_products = Product.all.count
+    @total_categories = Category.all.count
   end
 end
